@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light" style=""><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bisiklet Seçim Kılavuzu</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+      body {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 32px 80px;
+        position: relative;
+        box-sizing: border-box;
+        font-family:
+          'Inter',
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          Roboto,
+          sans-serif;
+        line-height: 1.6;
+        color: #111827;
+      }
+
+      .section {
+        margin-bottom: 3rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #0066cc;
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+
+      .collapsible {
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        margin: 1rem 0;
+        overflow: hidden;
+      }
+
+      .collapsible-header {
+        background: #f3f4f6;
+        padding: 1rem;
+        cursor: pointer;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .collapsible-content {
+        padding: 1rem;
+        display: none;
+      }
+
+      .collapsible.active .collapsible-content {
+        display: block;
+      }
+
+      .collapsible-toggle {
+        font-size: 1.2rem;
+      }
+
+      .geometry-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin: 1rem 0;
+      }
+
+      .geometry-item {
+        background: #f9fafb;
+        padding: 1rem;
+        border-radius: 6px;
+        border: 1px solid #e5e7eb;
+      }
+
+      .geometry-item h4 {
+        color: #0066cc;
+        margin-bottom: 0.5rem;
+      }
+
+      .position-demo {
+        background: #f0f9ff;
+        padding: 1rem;
+        border-radius: 6px;
+        margin: 1rem 0;
+        border-left: 4px solid #0066cc;
+      }
+
+      .suitable-for {
+        background: #f0fdf4;
+        padding: 1rem;
+        border-radius: 6px;
+        margin: 1rem 0;
+        border-left: 4px solid #16a34a;
+      }
+
+      .usage-areas {
+        background: #fef3c7;
+        padding: 1rem;
+        border-radius: 6px;
+        margin: 1rem 0;
+        border-left: 4px solid #f59e0b;
+      }
+
+      .feature-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .feature-list li {
+        padding: 0.25rem 0;
+        position: relative;
+        padding-left: 1.5rem;
+      }
+
+      .feature-list li:before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: #16a34a;
+        font-weight: bold;
+      }
+
+      .warning-box {
+        background: #fef2f2;
+        border: 1px solid #fecaca;
+        border-radius: 6px;
+        padding: 1rem;
+        margin: 1rem 0;
+      }
+
+      .warning-box h4 {
+        color: #dc2626;
+        margin-bottom: 0.5rem;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0;
+      }
+
+      th,
+      td {
+        padding: 0.75rem;
+        text-align: left;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      th {
+        background: #f9fafb;
+        font-weight: 600;
+        color: #374151;
+      }
+
+      .hero-section {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 2rem;
+        background: #f8fafc;
+        border-radius: 8px;
+      }
+
+      .hero-section h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #0066cc;
+        margin-bottom: 1rem;
+      }
+
+      .author-info {
+        margin-bottom: 1.5rem;
+        font-style: italic;
+        color: #6b7280;
+      }
+    </style>
+  </head>
+  <body style="">
+    <div class="hero-section">
+      <div class="author-info">
+        <p><strong>Hazırlayan: Triatlon Antrenörü &amp; Amatör Bisikletçi</strong></p>
+        <p><strong>Ümit Emre Erdoğan</strong></p>
+      </div>
+      <h1>🚴‍♂️ Bisiklet Seçim Kılavuzu</h1>
+      <p>
+        25 yıllık iki teker deneyimimle, sizler için kapsamlı bir bisiklet seçim kılavuzu hazırladım. Burada kullanım
+        amacından, kullanım alanlarında bisiklet türlerine, kadro geometrilerinden, teknik malzemelere kadar bir çok
+        temel bilgi ile sizi doğru bir seçim yapmanız için yönlendirecektir.
+      </p>
+    </div>
+
+    <!-- Kadro Türleri ve Geometrileri Bölümü -->
+    <section class="section">
+      <h2 class="section-title">🏗️ Kadro Türleri ve Sürüş Geometrileri</h2>
+
+      <div class="warning-box">
+        <h4>⚠️ Önemli Bilgi</h4>
+        <p>
+          Kadro geometrisi bisiklet performansını ve konforunu doğrudan etkiler. Doğru kadro türü seçimi, sürüş
+          deneyiminizi önemli ölçüde belirler. Her kadro türü farklı sürüş pozisyonları ve kullanım alanları için
+          optimize edilmiştir.
+        </p>
+      </div>
+
+      <div class="collapsible">
+        <div class="collapsible-header">
+          <h3>🏁 Yarış Kadrosu (Race Geometry)</h3>
+          <span class="collapsible-toggle">▼</span>
+        </div>
+        <div class="collapsible-content">
+          <div class="geometry-grid">
+            <div class="geometry-item">
+              <h4>📐 Geometri Özellikleri</h4>
+              <ul class="feature-list">
+                <li>Agresif sürüş pozisyonu</li>
+                <li>Düşük gidon yüksekliği</li>
+                <li>Uzun üst kadro (top tube)</li>
+                <li>Kısa kafa borusu (head tube)</li>
+                <li>Dik oturma açısı (73-75°)</li>
+                <li>Kısa dingil mesafesi (wheelbase)</li>
+              </ul>
+            </div>
+            <div class="geometry-item">
+              <h4>🏃‍♂️ Sürüş Pozisyonu</h4>
+              <ul class="feature-list">
+                <li>Vücut öne eğik (30-45°)</li>
+                <li>Aerodinamik pozisyon</li>
+                <li>Güç transferi optimizasyonu</li>
+                <li>Hızlı yön değiştirme</li>
+                <li>Düşük rüzgar direnci</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="position-demo">
+            <h4>🎯 Sürüş Pozisyonu Detayları</h4>
+            <p>
+              Yarış kadrosu, sürücüyü agresif bir pozisyona yerleştirir. Gövde öne eğik, eller gidon alt kısmında
+              (drops), kalça yüksekte konumlanır. Bu pozisyon maksimum güç transferi ve aerodinamik verimlilik sağlar.
+            </p>
+          </div>
+
+          <div class="suitable-for">
+            <h4>👥 Kimler İçin Uygun</h4>
+            <ul class="feature-list">
+              <li>Deneyimli bisikletçiler</li>
+              <li>Yarış odaklı kullanıcılar</li>
+              <li>Esnek ve güçlü fizik yapısına sahip olanlar</li>
+              <li>Performans odaklı sürücüler</li>
+              <li>Uzun mesafe hız tutmak isteyenler</li>
+            </ul>
+          </div>
+
+          <div class="usage-areas">
+            <h4>🏆 Kullanım Alanları</h4>
+            <ul class="feature-list">
+              <li>Yol yarışları ve kriteriyum</li>
+              <li>Triathlon ve zaman yarışları</li>
+              <li>Yüksek hızlı grup sürüşleri</li>
+              <li>Granfondo ve sportif etkinlikler</li>
+              <li>Performans odaklı antrenmanlar</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="collapsible">
+        <div class="collapsible-header">
+          <h3>🛋️ Endürans Kadrosu (Endurance Geometry)</h3>
+          <span class="collapsible-toggle">▼</span>
+        </div>
+        <div class="collapsible-content">
+          <div class="geometry-grid">
+            <div class="geometry-item">
+              <h4>📐 Geometri Özellikleri</h4>
+              <ul class="feature-list">
+                <li>Konfor odaklı sürüş pozisyonu</li>
+                <li>Yüksek gidon pozisyonu</li>
+                <li>Uzun kafa borusu (head tube)</li>
+                <li>Kısa üst kadro (top tube)</li>
+                <li>Rahat oturma açısı (72-74°)</li>
+                <li>Uzun dingil mesafesi (wheelbase)</li>
+              </ul>
+            </div>
+            <div class="geometry-item">
+              <h4>🚴‍♂️ Sürüş Pozisyonu</h4>
+              <ul class="feature-list">
+                <li>Dik oturma pozisyonu</li>
+                <li>Rahat omuz ve boyun açısı</li>
+                <li>Düşük bel baskısı</li>
+                <li>Kararlı ve güvenli sürüş</li>
+                <li>Uzun mesafe konforu</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="position-demo">
+            <h4>🎯 Sürüş Pozisyonu Detayları</h4>
+            <p>
+              Endürans kadrosu, sürücüyü daha dik ve rahat bir pozisyona yerleştirir. Gövde daha az eğik, eller gidon
+              üst kısmında veya hood pozisyonunda rahatça durabilir. Bu pozisyon saatlerce süren sürüşlerde konfor
+              sağlar.
+            </p>
+          </div>
+
+          <div class="suitable-for">
+            <h4>👥 Kimler İçin Uygun</h4>
+            <ul class="feature-list">
+              <li>Uzun mesafe sürücüleri</li>
+              <li>Konfor arayan bisikletçiler</li>
+              <li>Bel ve boyun hassasiyeti olanlar</li>
+              <li>Rekreasyonel kullanıcılar</li>
+              <li>Yeni başlayanlar</li>
+            </ul>
+          </div>
+
+          <div class="usage-areas">
+            <h4>🌄 Kullanım Alanları</h4>
+            <ul class="feature-list">
+              <li>Uzun mesafe turları</li>
+              <li>Granfondo ve sportif etkinlikler</li>
+              <li>Günlük fitness sürüşleri</li>
+              <li>Rekreasyonel grup sürüşleri</li>
+              <li>Bikepacking ve tur bisikletçiliği</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="collapsible">
+        <div class="collapsible-header">
+          <h3>🏎️ Aero Kadrosu (Aerodynamic Geometry)</h3>
+          <span class="collapsible-toggle">▼</span>
+        </div>
+        <div class="collapsible-content">
+          <div class="geometry-grid">
+            <div class="geometry-item">
+              <h4>📐 Geometri Özellikleri</h4>
+              <ul class="feature-list">
+                <li>Aerodinamik kadro profili</li>
+                <li>Entegre kablo sistemi</li>
+                <li>Düşük gidon pozisyonu</li>
+                <li>Agresif sürüş açısı</li>
+                <li>Dik oturma açısı (74-76°)</li>
+                <li>Optimize edilmiş hava akımı</li>
+              </ul>
+            </div>
+            <div class="geometry-item">
+              <h4>💨 Aerodinamik Özellikler</h4>
+              <ul class="feature-list">
+                <li>Düşük rüzgar direnci</li>
+                <li>Hızlı ve keskin sürüş</li>
+                <li>Maksimum güç transferi</li>
+                <li>Yüksek hız kararlılığı</li>
+                <li>Profesyonel seviye performans</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="position-demo">
+            <h4>🎯 Sürüş Pozisyonu Detayları</h4>
+            <p>
+              Aero kadrosu, sürücüyü en aerodinamik pozisyona yerleştirir. Çok düşük gidon pozisyonu, agresif vücut
+              açısı ve optimize edilmiş güç transferi sağlar. Triathlon ve zaman yarışları için ideal pozisyon.
+            </p>
+          </div>
+
+          <div class="suitable-for">
+            <h4>👥 Kimler İçin Uygun</h4>
+            <ul class="feature-list">
+              <li>İleri seviye yarışçılar</li>
+              <li>Triathlon sporcuları</li>
+              <li>Zaman yarışı uzmanları</li>
+              <li>Maksimum hız arayan sürücüler</li>
+              <li>Profesyonel seviye atletler</li>
+            </ul>
+          </div>
+
+          <div class="usage-areas">
+            <h4>⚡ Kullanım Alanları</h4>
+            <ul class="feature-list">
+              <li>Triathlon yarışları</li>
+              <li>Zaman yarışları (Time Trial)</li>
+              <li>Yüksek hızlı solo sürüşler</li>
+              <li>Aerodinamik test ve antrenmanlar</li>
+              <li>Profesyonel yarış organizasyonları</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="collapsible">
+        <div class="collapsible-header">
+          <h3>🔄 All-Rounder Kadrosu (Versatile Geometry)</h3>
+          <span class="collapsible-toggle">▼</span>
+        </div>
+        <div class="collapsible-content">
+          <div class="geometry-grid">
+            <div class="geometry-item">
+              <h4>📐 Geometri Özellikleri</h4>
+              <ul class="feature-list">
+                <li>Dengeli sürüş pozisyonu</li>
+                <li>Orta seviye gidon yüksekliği</li>
+                <li>Adaptif kadro geometrisi</li>
+                <li>Çok amaçlı kullanım</li>
+                <li>Standart oturma açısı (72-74°)</li>
+                <li>Orta dingil mesafesi</li>
+              </ul>
+            </div>
+            <div class="geometry-item">
+              <h4>⚖️ Denge Özellikleri</h4>
+              <ul class="feature-list">
+                <li>Konfor ve performans dengesi</li>
+                <li>Çok yönlü sürüş imkanı</li>
+                <li>Farklı pozisyon seçenekleri</li>
+                <li>Kararlı ve güvenli sürüş</li>
+                <li>Geniş kullanım alanı</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="position-demo">
+            <h4>🎯 Sürüş Pozisyonu Detayları</h4>
+            <p>
+              All-rounder kadrosu, hem konfor hem de performans sağlayan dengeli bir pozisyon sunar. Çok farklı sürüş
+              stillerine uyum sağlar ve geniş kullanıcı kitlesine hitap eder.
+            </p>
+          </div>
+
+          <div class="suitable-for">
+            <h4>👥 Kimler İçin Uygun</h4>
+            <ul class="feature-list">
+              <li>Çok amaçlı kullanıcılar</li>
+              <li>Başlangıç seviye yarışçılar</li>
+              <li>Hobi bisikletçileri</li>
+              <li>Bütçe bilinçli alıcılar</li>
+              <li>İlk ciddi bisiklet alanlar</li>
+            </ul>
+          </div>
+
+          <div class="usage-areas">
+            <h4>🎯 Kullanım Alanları</h4>
+            <ul class="feature-list">
+              <li>Günlük antrenmanlar</li>
+              <li>Rekreasyonel sürüşler</li>
+              <li>Klub aktiviteleri</li>
+              <li>Fitness ve sağlık amaçlı sürüş</li>
+              <li>Karma zemin kullanımı</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="collapsible">
+        <div class="collapsible-header">
+          <h3>⛰️ Tırmanış Kadrosu (Climbing Geometry)</h3>
+          <span class="collapsible-toggle">▼</span>
+        </div>
+        <div class="collapsible-content">
+          <div class="geometry-grid">
+            <div class="geometry-item">
+              <h4>📐 Geometri Özellikleri</h4>
+              <ul class="feature-list">
+                <li>Hafif ve sert kadro yapısı</li>
+                <li>Dik oturma açısı (74-76°)</li>
+                <li>Kısa dingil mesafesi</li>
+                <li>Optimize edilmiş güç transferi</li>
+                <li>Düşük ağırlık merkezi</li>
+                <li>Çevik ve responsive sürüş</li>
+              </ul>
+            </div>
+            <div class="geometry-item">
+              <h4>🏔️ Tırmanış Özellikleri</h4>
+              <ul class="feature-list">
+                <li>Maksimum güç transferi</li>
+                <li>Hafif malzeme kullanımı</li>
+                <li>Yüksek kadans verimliliği</li>
+                <li>Hızlı ivmelenme</li>
+                <li>Çevik manevra kabiliyeti</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="position-demo">
+            <h4>🎯 Sürüş Pozisyonu Detayları</h4>
+            <p>
+              Tırmanış kadrosu, pedal gücünü en etkili şekilde tekerleklere aktarmak için optimize edilmiştir. Dik
+              oturma açısı ve sert kadro yapısı sayesinde tırmanışlarda maksimum verimlilik sağlar.
+            </p>
+          </div>
+
+          <div class="suitable-for">
+            <h4>👥 Kimler İçin Uygun</h4>
+            <ul class="feature-list">
+              <li>Dağlık bölge sürücüleri</li>
+              <li>Tırmanış uzmanları</li>
+              <li>Hafif ve çevik sürücüler</li>
+              <li>Dağ yarışçıları</li>
+              <li>Yüksek kadans kullananlar</li>
+            </ul>
+          </div>
+
+          <div class="usage-areas">
+            <h4>🏔️ Kullanım Alanları</h4>
+            <ul class="feature-list">
+              <li>Dağlık bölge yarışları</li>
+              <li>Tırmanış odaklı antrenmanlar</li>
+              <li>Yüksek rakım sürüşleri</li>
+              <li>Hill climb yarışları</li>
+              <li>Dağ etapları ve tırmanış segmentleri</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="collapsible">
+        <div class="collapsible-header">
+          <h3>🌄 Gravel Kadrosu (Adventure Geometry)</h3>
+          <span class="collapsible-toggle">▼</span>
+        </div>
+        <div class="collapsible-content">
+          <div class="geometry-grid">
+            <div class="geometry-item">
+              <h4>📐 Geometri Özellikleri</h4>
+              <ul class="feature-list">
+                <li>Kararlı ve rahat sürüş pozisyonu</li>
+                <li>Uzun dingil mesafesi</li>
+                <li>Geniş lastik boşluğu</li>
+                <li>Düşük bottom bracket</li>
+                <li>Rahat sürüş açısı (71-73°)</li>
+                <li>Çok yönlü kadro tasarımı</li>
+              </ul>
+            </div>
+            <div class="geometry-item">
+              <h4>🏞️ Macera Özellikleri</h4>
+              <ul class="feature-list">
+                <li>Karma zemin uyumu</li>
+                <li>Yük taşıma kapasitesi</li>
+                <li>Uzun mesafe konforu</li>
+                <li>Kararlı sürüş dinamiği</li>
+                <li>Dayanıklı yapı</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="position-demo">
+            <h4>🎯 Sürüş Pozisyonu Detayları</h4>
+            <p>
+              Gravel kadrosu, hem asfalt hem de arazi sürüşleri için optimize edilmiş pozisyon sunar. Konforlu ama
+              etkili sürüş pozisyonu sayesinde uzun mesafe maceralar için idealdir.
+            </p>
+          </div>
+
+          <div class="suitable-for">
+            <h4>👥 Kimler İçin Uygun</h4>
+            <ul class="feature-list">
+              <li>Macera bisikletçileri</li>
+              <li>Karma zemin kullanıcıları</li>
+              <li>Uzun tur sürücüleri</li>
+              <li>Bikepacking meraklıları</li>
+              <li>Çok yönlü sürüş arayanlar</li>
+            </ul>
+          </div>
+
+          <div class="usage-areas">
+            <h4>🗺️ Kullanım Alanları</h4>
+            <ul class="feature-list">
+              <li>Gravel yarışları</li>
+              <li>Bikepacking turları</li>
+              <li>Karma zemin keşifler</li>
+              <li>Uzun mesafe maceralar</li>
+              <li>Çok günlük tur organizasyonları</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kadro Geometrisi Karşılaştırma Tablosu -->
+    <section class="section">
+      <h2 class="section-title">📊 Kadro Geometrisi Karşılaştırma Tablosu</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Kadro Türü</th>
+            <th>Sürüş Pozisyonu</th>
+            <th>Konfor Seviyesi</th>
+            <th>Performans Seviyesi</th>
+            <th>Kullanım Alanı</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Yarış Kadrosu</strong></td>
+            <td>Çok Agresif</td>
+            <td>Düşük</td>
+            <td>Çok Yüksek</td>
+            <td>Yarış &amp; Rekabet</td>
+          </tr>
+          <tr>
+            <td><strong>Endürans Kadrosu</strong></td>
+            <td>Rahat</td>
+            <td>Yüksek</td>
+            <td>Orta-Yüksek</td>
+            <td>Uzun Mesafe</td>
+          </tr>
+          <tr>
+            <td><strong>Aero Kadrosu</strong></td>
+            <td>Çok Agresif</td>
+            <td>Düşük</td>
+            <td>Maksimum</td>
+            <td>Zaman Yarışı</td>
+          </tr>
+          <tr>
+            <td><strong>All-Rounder</strong></td>
+            <td>Dengeli</td>
+            <td>Orta</td>
+            <td>Orta</td>
+            <td>Çok Amaçlı</td>
+          </tr>
+          <tr>
+            <td><strong>Tırmanış Kadrosu</strong></td>
+            <td>Agresif</td>
+            <td>Orta</td>
+            <td>Yüksek</td>
+            <td>Dağlık Bölge</td>
+          </tr>
+          <tr>
+            <td><strong>Gravel Kadrosu</strong></td>
+            <td>Rahat-Dengeli</td>
+            <td>Yüksek</td>
+            <td>Orta</td>
+            <td>Macera &amp; Tur</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Kadro Seçimi Rehberi -->
+    <section class="section">
+      <h2 class="section-title">🎯 Kadro Seçimi Rehberi</h2>
+
+      <div class="warning-box">
+        <h4>💡 Uzman Tavsiyesi</h4>
+        <p>
+          Kadro geometrisi seçimi, bisiklet performansınızı doğrudan etkileyen en önemli faktörlerden biridir. Kullanım
+          amacınız, fiziksel özellikleriniz ve deneyim seviyeniz göz önünde bulundurularak seçim yapılmalıdır.
+        </p>
+      </div>
+
+      <div class="geometry-grid">
+        <div class="geometry-item">
+          <h4>🏁 Yarış Odaklı Seçim</h4>
+          <ul class="feature-list">
+            <li>Deneyimli sürücüler için yarış kadrosu</li>
+            <li>Zaman yarışları için aero kadrosu</li>
+            <li>Dağlık yarışlar için tırmanış kadrosu</li>
+            <li>Uzun yarışlar için endürans kadrosu</li>
+          </ul>
+        </div>
+        <div class="geometry-item">
+          <h4>🚴‍♂️ Rekreasyonel Seçim</h4>
+          <ul class="feature-list">
+            <li>Başlangıç için endürans kadrosu</li>
+            <li>Çok amaçlı kullanım için all-rounder</li>
+            <li>Macera için gravel kadrosu</li>
+            <li>Konfor için endürans kadrosu</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="suitable-for">
+        <h4>✅ Doğru Seçim İçin Kontrol Listesi</h4>
+        <ul class="feature-list">
+          <li>Fiziksel esnek ve güç seviyenizi değerlendirin</li>
+          <li>Kullanım amacınızı net olarak belirleyin</li>
+          <li>Sürüş mesafelerinizi göz önünde bulundurun</li>
+          <li>Deneyim seviyenizi dürüstçe değerlendirin</li>
+          <li>Mutlaka test sürüşü yapın</li>
+          <li>Uzman görüşü alın</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Bike Fit ve Beden Uygunluğu Bölümü -->
+    <section class="section">
+      <h2 class="section-title">🔧 Bike Fit ve Beden Uygunluğu</h2>
+
+      <div class="warning-box">
+        <h4>💰 En İyi Yatırım</h4>
+        <p>
+          <strong>Bike fit, bisiklet aldıktan sonra yapabileceğiniz en iyi yatırımdır.</strong> Profesyonel bike fit seansı, 
+          bisikletinizin performansını ve konforunu dramatik şekilde artırır. Bu yatırım, pahalı aksesuar ve parça 
+          yükseltmelerinden çok daha etkilidir.
+        </p>
+      </div>
+
+      <div class="warning-box">
+        <h4>🎯 En Önemli Özellik</h4>
+        <p>
+          <strong>Bisikletin markası ve modeli ne olursa olsun, en önemli özelliği bedeni ve geometrilerinin 
+          kullanıcısına uygunluğudur.</strong> 100.000 TL'lik bir bisiklet bile yanlış bedende alınırsa, 
+          25.000 TL'lik doğru bedendeki bisikletten daha az performans ve konfor sağlar.
+        </p>
+      </div>
+
+      <div class="suitable-for">
+        <h4>✅ Bike Fit Neden Kritik?</h4>
+        <ul class="feature-list">
+          <li>Sakatlık riskini minimum seviyeye indirir</li>
+          <li>Pedal gücünü maksimum seviyeye çıkarır</li>
+          <li>Uzun mesafe konforunu artırır</li>
+          <li>Aerodinamik verimliliği optimize eder</li>
+          <li>Bisiklet kontrolünü geliştirir</li>
+          <li>Yorgunluğu azaltır ve dayanıklılığı artırır</li>
+        </ul>
+      </div>
+
+      <div class="usage-areas">
+        <h4>📝 Bike Fit Ne Zaman Gerekli?</h4>
+        <ul class="feature-list">
+          <li>Yeni bisiklet aldığınızda</li>
+          <li>Ağrı veya rahatsızlık yaşadığınızda</li>
+          <li>Performans artışı hedeflediğinizde</li>
+          <li>Sürüş pozisyonunuzda değişiklik yapmak istediğinizde</li>
+          <li>Uzun mesafe etkinlikler öncesinde</li>
+          <li>Yarış sezonuna hazırlanırken</li>
+        </ul>
+      </div>
+
+      <div class="position-demo">
+        <h4>🎯 Uzman Tavsiyesi</h4>
+        <p>
+          Bisiklet satın almadan önce farklı markaların geometri tablolarını inceleyin ve mümkünse test sürüşü yapın. 
+          Satın alma sonrasında ise profesyonel bike fit seansı planlayın. Bu yaklaşım, bisikletinizden maksimum 
+          verim almanızı sağlar ve yıllar boyu sürecek keyifli sürüş deneyimi yaratır.
+        </p>
+      </div>
+    </section>
+
+    <script>
+      // Collapsible functionality
+      document.addEventListener('DOMContentLoaded', function () {
+        const collapsibles = document.querySelectorAll('.collapsible');
+
+        collapsibles.forEach(function (collapsible) {
+          const header = collapsible.querySelector('.collapsible-header');
+          const toggle = header.querySelector('.collapsible-toggle');
+
+          header.addEventListener('click', function () {
+            collapsible.classList.toggle('active');
+            toggle.textContent = collapsible.classList.contains('active') ? '▲' : '▼';
+          });
+        });
+      });
+    </script>
+  
+
+</body></html>
